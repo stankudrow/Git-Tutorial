@@ -50,7 +50,9 @@ To achieve this goal, `git remote add <name> <url>` is helpful. It needs:
 
 - \<name\> - a shortcut (label) for the specified URL
 
-This command will modify `.git/config` file for you.
+This command will modify `.git/config` file for you with necessary references (the contents will be listed later).
+
+To send data to the remote repository - `git push` command.
 
 Steps to take:
 
@@ -70,57 +72,24 @@ Steps to take:
         fetch = +refs/heads/*:refs/remotes/origin/*
     ```
 
-2. `git add <this_note>`
+2. `git add lessons/01_remote_repo.md`
+
+3. `git commit -m "lesson 01: remote repository note"`
+
+4. `git push` - failed
 
     ```shell
-    ╰─➤  cat .git/config 
-    [core]
-        repositoryformatversion = 0
-        filemode = true
-        bare = false
-        logallrefupdates = true
-    [remote "origin"]
-        url = git@github.com:stankudrow/Git-Tutorial.git
-        fetch = +refs/heads/*:refs/remotes/origin/*
+    ╰─➤  git push
+    fatal: The current branch develop has no upstream branch.
+    To push the current branch and set the remote as upstream, use
+
+        git push --set-upstream origin develop
     ```
 
-3. found a "rubbish" [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) file
+    Upstream means the relationship from local to remote.
+    The inverse order is downstream.
 
-    I don't want to commit .DS_Store, so I created .gitignore file with the pattern `.DS_Store`.
-    Since then Git is ignoring such files.
-    See [Atlassian: .gitignore](https://www.atlassian.com/git/tutorials/saving-changes/gitignore) article for more information.
-
-4. status again
-
-    ```shell
-    On branch main
-    Changes not staged for commit:
-    (use "git add <file>..." to update what will be committed)
-    (use "git restore <file>..." to discard changes in working directory)
-            modified:   notes/01_first_steps.md
-
-    Untracked files:
-    (use "git add <file>..." to include in what will be committed)
-            .gitignore
-
-    no changes added to commit (use "git add" and/or "git commit -a")
-    ```
-
-5. adding the .gitignore only: `git add .gitignore` and `git status` encore une fois:
-
-    ```shell
-    On branch main
-    Changes to be committed:
-    (use "git restore --staged <file>..." to unstage)
-            new file:   .gitignore
-
-    Changes not staged for commit:
-    (use "git add <file>..." to update what will be committed)
-    (use "git restore <file>..." to discard changes in working directory)
-            modified:   notes/01_first_steps.md
-    ```
-
-6. commiting: `git commit -m "push forward"`
+5. aight, repeating the steps 2 and 3 + `git push --set-upstream origin develop`
 
     ```shell
     [main 440cd92] push forward
