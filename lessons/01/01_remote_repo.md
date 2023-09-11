@@ -7,6 +7,7 @@ Before you go, consider reading the [README.md](../../README.md) file at the roo
 - [New branch](#new-branch)
 - [Remote repository](#remote-repository)
 - [References](#references)
+- [Next tutorial]
 
 ## New branch
 
@@ -143,8 +144,58 @@ Steps to take:
     `git add lessons` will handle the deleted files as well
 
     ```shell
+    ╰─➤  git add lessons
+    ╭─<...> ~/Projects/git-tutorial  ‹develop*› 
+    ╰─➤  git status
+    On branch develop
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            renamed:    lessons/00_introduction.md -> lessons/00/00_introduction.md
+            renamed:    lessons/01_remote_repo.md -> lessons/01/01_remote_repo.md
+            new file:   lessons/01/git-tutorial-github-repo.png
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            README.md
     ```
 
+    ```shell
+    ╰─➤  git commit -m "lesson 01: github remote repo"
+    [develop 4ff12de] lesson 01: github remote repo
+    3 files changed, 95 insertions(+), 39 deletions(-)
+    rename lessons/{ => 00}/00_introduction.md (84%)
+    rename lessons/{ => 01}/01_remote_repo.md (63%)
+    create mode 100644 lessons/01/git-tutorial-github-repo.png
+    ╰─➤  git push --set-upstream origin develop
+    Enumerating objects: 20, done.
+    Counting objects: 100% (20/20), done.
+    Delta compression using up to 16 threads
+    Compressing objects: 100% (14/14), done.
+    Writing objects: 100% (20/20), 76.03 KiB | 19.01 MiB/s, done.
+    Total 20 (delta 4), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (4/4), done.
+    remote: 
+    remote: Create a pull request for 'develop' on GitHub by visiting:
+    remote:      https://github.com/stankudrow/Git-Tutorial/pull/new/develop
+    remote: 
+    To github.com:stankudrow/Git-Tutorial.git
+    * [new branch]      develop -> develop
+    Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+    ```
+
+Yay, it is done, this is fine, the changes are applied:
+
+![GitHub: Git tutorial with develop branch](./git-tutorial-lesson01-develop.png "GitHub Git Tutorial develop")
+
+Update: all tutorial notes are added into the `develop` branch. It is good for future possible merge conflicts to be resolved.
+
+## Next tutorial
+
+- `git log` - the history of a git project
+
+- `git diff` - reading and understanding "interstate" differences
+
+Git internals are still not covered because for now I am sticking to an intuitive approach. Certainly the theory must be exposed, but I believe the time has not come yet as long as we are okay with practice-oriented way. If not, consider picking up the theory on your own starting now or even earlier.
 
 ## References
 
