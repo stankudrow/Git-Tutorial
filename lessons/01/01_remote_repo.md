@@ -7,9 +7,9 @@ Before you go, consider reading the [README.md](../../README.md) file at the roo
 - [New branch](#new-branch)
 - [Remote repository](#remote-repository)
 - [References](#references)
-- [Next tutorial]
+- [Next tutorial](#next-tutorial)
 
-## New branch
+### New branch
 
 Since this note all the work will be done in a new `develop` branch.
 The `main` branch wii be meant for releases and it is good to keep it clean.
@@ -42,7 +42,7 @@ Checking (the asterisk/star show the current branch we are at):
 
 These branches are still local, but I want this work to be pushed into the remote repository.
 
-## Remote repository
+### Remote repository
 
 Time to publish this work to my GitHub account.
 To achieve this goal, `git remote add <name> <url>` is helpful. It needs:
@@ -187,9 +187,13 @@ Yay, it is done, this is fine, the changes are applied:
 
 ![GitHub: Git tutorial with develop branch](./git-tutorial-lesson01-develop.png "GitHub Git Tutorial develop")
 
-Update: all tutorial notes are added into the `develop` branch. It is good for future possible merge conflicts to be resolved.
+**Update**:
 
-## Next tutorial
+- all tutorial notes are added into the `develop` branch. It is good for future possible merge conflicts to be resolved.
+
+- I can use just `git push` command because the upstream was set before.
+
+### Next tutorial
 
 - `git log` - the history of a git project
 
@@ -197,7 +201,7 @@ Update: all tutorial notes are added into the `develop` branch. It is good for f
 
 Git internals are still not covered because for now I am sticking to an intuitive approach. Certainly the theory must be exposed, but I believe the time has not come yet as long as we are okay with practice-oriented way. If not, consider picking up the theory on your own starting now or even earlier.
 
-## References
+### References
 
 - [Atlassian: Git Remote](https://www.atlassian.com/git/tutorials/syncing)
 
