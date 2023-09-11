@@ -1,6 +1,6 @@
 # Git Tutorial - Introduction
 
-Before you go, consider reading the README.md file at the root of the project.
+Before you go, consider reading the [README.md](../../README.md) file at the root of the project.
 
 ## Table of Contents
 
@@ -8,6 +8,8 @@ Before you go, consider reading the README.md file at the root of the project.
 - [Configuring Git](#configuring-git)
 - [Git init](#git-init)
 - [First commit](#first-commit)
+- [Next tutorial](#next-tutorial)
+- [References](#references)
 
 ### Installing Git
 
@@ -231,7 +233,49 @@ And now, time to fix (commit) the changes:
 
 - `README.md` is not. So when switching to this state, `README.md` file will not be present.
 
-Typing `git commit -m "lesson00: introduction"`, where `-m` is a commit message, fixes the desired state.
+Typing `git commit -m "lesson00: introduction"`, where `-m` is a commit message, fixes the desired state...NO, failed)
+
+```shell
+╰─➤  git commit -m "lesson00: introduction"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got '<...>.(none)')
+```
+
+Time to fix the things:
+
+```shell
+╰─➤  git config --global user.name "Stanley Kudrow"
+╭─<...> ~/Projects/git-tutorial  ‹main*› 
+╰─➤  git config --global user.email stankudrow@reply.no
+```
+
+The email is non-existent, so no fear to expose it here. After the configuration, `git commit` works.
+
+```shell
+╰─➤  git commit -m "lesson00: introduction"
+[main (root-commit) 2ebfc4f] lesson00: introduction
+ 1 file changed, 239 insertions(+)
+ create mode 100644 lessons/00_introduction.md
+```
+
+### Next tutorial
+
+- linking this local git repository to the remote one on GitHub platform
+
+- pushing the changes into the remote repository
+
+- the next tutorial into a new branch
 
 ## References
 

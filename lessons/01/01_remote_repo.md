@@ -1,6 +1,6 @@
 # Git Practice - remote repository
 
-Before you go, consider reading the [README.md](../README.md) file at the root of the project.
+Before you go, consider reading the [README.md](../../README.md) file at the root of the project.
 
 ## Table of Contents
 
@@ -92,53 +92,59 @@ Steps to take:
 5. aight, repeating the steps 2 and 3 + `git push --set-upstream origin develop`
 
     ```shell
-    [main 440cd92] push forward
-    1 file changed, 1 insertion(+)
-    create mode 100644 .gitignore
-    ```
-
-7. `git push`
-
-    Oops, but Git is helpful:
-
-    ```shell
-    fatal: The current branch main has no upstream branch.
-    To push the current branch and set the remote as upstream, use
-
-        git push --set-upstream origin main
-    ```
-
-8. `git push --set-upstream origin main`
-
-    No way)
-
-    ```shell
+    ╰─➤  git status -s
+    M lessons/00_introduction.md
+    M lessons/01_remote_repo.md
+    ?? README.md
+    ╭─<...> ~/Projects/git-tutorial  ‹develop*› 
+    ╰─➤  git add lessons/01_remote_repo.md
+    ╭─<...> ~/Projects/git-tutorial  ‹develop*› 
+    ╰─➤  git status -s
+    M lessons/00_introduction.md
+    M  lessons/01_remote_repo.md
+    ?? README.md
+    ╭─<...> ~/Projects/git-tutorial  ‹develop*› 
+    ╰─➤  git commit -m "push origin develop"
+    [develop 9659d20] push origin develop
+    1 file changed, 13 insertions(+), 44 deletions(-)
+    ╭─<...> ~/Projects/git-tutorial  ‹develop*› 
+    ╰─➤  git push --set-upstream origin develop
     ERROR: Repository not found.
     fatal: Could not read from remote repository.
-
+    
     Please make sure you have the correct access rights
     and the repository exists.
     ```
 
-    **Pay attention to the message**: *you need to have correct access rights AND the repository must exist*.
+6. Damn, the correct access is, but I forgot to create the repository. Now I need to create `Git Tutorial` repository, so GitHib will convert it into `Git-Tutorial`, so the references from `.git/config` won't get invalid.
 
-    I already have correct rights, so only repository creation is a step to take - [GitHub docs](https://docs.github.com/en/get-started/quickstart/create-a-repo).
+    ![Git tutorial repository on GitHub](./git-tutorial-github-repo.png "GitHub Git Tutorial")
 
-9. finally, when the step 8 is over, `git push -u origin main` worked - now the local and remote states are synchronised.
+7. I understood that the project needs a bit of restructure: the lessons/notes are moved into the corresponding directories.
 
-References on Git **origin** name:
+    ```shell
+    ╰─➤  git status
+    On branch develop
+    Changes not staged for commit:
+    (use "git add/rm <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            deleted:    lessons/00_introduction.md
+            deleted:    lessons/01_remote_repo.md
 
-- [Stack Overflow: what-is-origin-in-git](https://stackoverflow.com/questions/9529497/what-is-origin-in-git)
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            README.md
+            lessons/00/
+            lessons/01/
 
-- [GitHub: adding-a-local-repository-to-github-using-git](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git)
+    no changes added to commit (use "git add" and/or "git commit -a")
+    ```
 
-**Done**.
+    `git add lessons` will handle the deleted files as well
 
-## Post ~~Mortem~~... Scriptum
+    ```shell
+    ```
 
-Some updates were added for clarifying explanations and for the next tutorial.
-
-Also, **feel free to contribute if you like or you need some practice**. Moreover, it is a cheap way to contribute to an open-source project and get some of GitHub achievenment badges.
 
 ## References
 
@@ -147,3 +153,9 @@ Also, **feel free to contribute if you like or you need some practice**. Moreove
 - [Git docs: git-remote](https://git-scm.com/docs/git-remote)
 
 - [Stack Overflow: git-push-fatal-no-configured-push-destination](https://stackoverflow.com/questions/10032964/git-push-fatal-no-configured-push-destination)
+
+- [GitHub docs: Create a Repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
+
+- [Stack Overflow: what-is-origin-in-git](https://stackoverflow.com/questions/9529497/what-is-origin-in-git)
+
+- [GitHub: adding-a-local-repository-to-github-using-git](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git)
