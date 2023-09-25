@@ -6,8 +6,8 @@ Before you go, consider reading the [README.md](../../README.md) file at the roo
 
 - [New branch](#new-branch)
 - [Remote repository](#remote-repository)
-- [References](#references)
 - [Next tutorial](#next-tutorial)
+- [References](#references)
 
 ### New branch
 
